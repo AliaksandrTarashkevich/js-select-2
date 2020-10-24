@@ -1,0 +1,115 @@
+// Variables
+
+$brand-gray: #cccccc;
+$brand-gray-2: #eeeeee;
+$border-default: 1px solid $brand-gray;
+$box-shadow-default: 2px 1px 5px rgba(0, 0, 0, 0.3);
+
+// Global styles
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+// Scrollbar
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+// Main styles
+
+.app {
+  padding-top: 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.wrap {
+  width: 500px;
+}
+
+.select {
+  width: 100%;
+  position: relative;
+
+  &.open {
+
+    .select__input {
+      border-bottom: none;
+
+      .fa-chevron-down {
+        transform: rotate(180deg);
+      }
+    }
+
+    .select__dropdown {
+      display: block;
+    }
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem 1rem;
+    border: $border-default;
+    border-radius: 5px;
+
+    .fa-chevron-down {
+      transform: rotate(0deg);
+      transition: all .2s ease-in-out;
+    }
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    border: $border-default;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    box-shadow: $box-shadow-default;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    padding: 1rem;
+    transition: all .1s ease-in;
+
+    &:not(:last-child) {
+      border-bottom: $border-default;
+    }
+    
+    &:hover {
+      background-color: $brand-gray-2;
+      cursor: pointer;
+    }
+  }
+}
